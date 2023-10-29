@@ -2,11 +2,10 @@
 An attempt to code the classic game hangman as efficiently as possible.
 To install this fun, little game. Just go into your terminal (assuming you've already got git) and use the code: git clone https://github.com/James-Preston-github/hangman-project.git
 
-Huge long word list lets you try and guess almost any word in the english language (as long as it's longer than 4 letters long)! Happy hanging!!
+Huge long word list lets you try and guess almost any word in the english language (as long as it's longer than 4 letters long)! Happy hanging!! There's a feature that lets you pick how many lives you'll want based on the length of the word. It also tells you the answer if you didn't get it in time
 
 ## Update
-Added a feature that lets you pick how many lives you'll want based on the length of the word. It also tells you the answer if you didn't get it in time
-
+Now, you can pick whether or not you want to be given all the vowels straight away before picking how many lives you'll need
 
 
 milestone_3.py update

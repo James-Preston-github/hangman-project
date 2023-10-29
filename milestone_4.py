@@ -1,5 +1,4 @@
 import random as rd
-from milestone_2 import word_list
 
 def make_word_guessed(word):
     list_of_blanks=[]
@@ -48,7 +47,4 @@ class Hangman:
             else:
                 self.check_guess(guess)
                 self.list_of_guesses.append(guess)
-
-guesss=Hangman(word_list,5)
-guesss.ask_for_input()
 
