@@ -16,15 +16,12 @@ def make_num_letters(word, word_guessed):
 
 
 class Hangman:
-    def __init__(self,word_list,num_lives=5):
-        self.num_lives=num_lives
-        self.word_list=word_list
-        self.word=rd.choice(word_list)
-        while len(self.word)<=3:
-            self.word=rd.choice(word_list)
-        self.word_guessed=make_word_guessed(self.word)[0]
-        self.num_letters=len(make_word_guessed(self.word)[1])
-        self.list_of_guesses=[]
+    def __init__(self,word,num_lives=5):
+        self.num_lives = num_lives
+        self.word = word
+        self.word_guessed = make_word_guessed(self.word)[0]
+        self.num_letters = len(make_word_guessed(self.word)[1])
+        self.list_of_guesses = []
     
     def check_guess(self,guess):
         guess=guess
@@ -33,18 +30,17 @@ class Hangman:
             print(f'Good guess, {guess} is in the word')
             for i in range(len(self.word)):
                 if self.word[i] == guess:
-                    self.word_guessed[i]=guess
-            self.num_letters-=1
+                    self.word_guessed[i] = guess
+            self.num_letters -= 1
             print(self.word_guessed)
         else:
-            self.num_lives-=1
-            print(f'Sorry, {guess} isn\'t in the word')
-            print(f'Sorry, you lose a life, you now have {self.num_lives} lives left')
+            self.num_lives -= 1
+            print(f'Sorry, {guess} isn\'t in the word, so you lose a life, you now have {self.num_lives} lives left')
 
     def ask_for_input(self):
-            guess=input("Guess a letter that might be in the word").strip().lower()
-            if not guess.isalpha() or len(guess)>1:
-                print('Invalid letter, guess again')
+            guess = input("Guess a letter that might be in the word ").strip().lower()
+            if not guess.isalpha() or len(guess) > 1:
+                print('Invalid entry, guess a single letter')
             elif guess in self.list_of_guesses:
                 print('You already tried that letter')
             else:
@@ -53,13 +49,16 @@ class Hangman:
 
 
 def play_game(word_list):
-    num_lives=5
-    game=Hangman(word_list,num_lives)
+    word=rd.choice(word_list)
+    while len(word) <= 3:
+        word=rd.choice(word_list)
+    num_lives=int(input(f'How much you  back yourself, big man, i.e. how many lives do you want, the word you\'re looking for is {len(word)} letters long'))
+    game=Hangman(word,num_lives)
     while True:
-        if game.num_lives==0:
-            print('You lose')
+        if game.num_lives == 0:
+            print(f'You lose, the answer was {word}')
             break
-        elif game.num_letters >0:
+        elif game.num_letters > 0:
             game.ask_for_input()
         else:
             print(f'Congrats, you won the game! And you had {game.num_lives} lives left')
