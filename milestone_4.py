@@ -1,5 +1,5 @@
 import random as rd
-from milestone_2 import word_list, characters
+from milestone_2 import word_list
 
 def make_word_guessed(word):
     list_of_blanks=[]
