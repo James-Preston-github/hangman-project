@@ -6,7 +6,7 @@ for i in letters:
     characters.append(i)
 
 word_list_basic=['banana', 'apple', 'orange', 'kiwi', 'pineapple']
-word=rd.choice(word_list)
+word=rd.choice(word_list_basic)
 
 while __name__ == "__main__":
    
